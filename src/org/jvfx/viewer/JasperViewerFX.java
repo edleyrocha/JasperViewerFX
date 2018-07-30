@@ -46,7 +46,7 @@ public class JasperViewerFX {
 
     private Button print, save, backPage, firstPage, nextPage, lastPage, zoomIn, zoomOut;
     private ImageView report;
-    private Label lblReportPages;
+    private Label lblReportPages, bottomLabel;
     private Stage dialog;
     private TextField txtPage;
 
@@ -109,7 +109,8 @@ public class JasperViewerFX {
         });
         
         lblReportPages = new Label("/ 1");
-
+        bottomLabel = new Label("Page 1 of 1");
+        
         HBox menu = new HBox(5);
         menu.setAlignment(Pos.CENTER);
         menu.setPadding(new Insets(5));
@@ -136,7 +137,8 @@ public class JasperViewerFX {
         BorderPane root = new BorderPane();
         root.setTop(menu);
         root.setCenter(scroll);
-
+        root.setBottom(bottomLabel);
+        
         return new Scene(root, 1024, 768);
     }
 
@@ -281,7 +283,7 @@ public class JasperViewerFX {
             if(page > 0 && page <= reportPages) {
                 currentPage.set(page);
                 txtPage.setText(Integer.toString(page));
-                
+                bottomLabel.setText(String.format("Page %s of %s",(Integer.toString(page)),(Integer.toString(reportPages))));
                 if (page == 1) {
                     backPage.setDisable(true);
                     firstPage.setDisable(true);
