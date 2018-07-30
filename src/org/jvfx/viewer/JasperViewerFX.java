@@ -17,6 +17,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
@@ -69,14 +70,22 @@ public class JasperViewerFX {
     // Scene and button actions
     // ***********************************************
     private Scene createScene() {
-        print = new Button(null, new ImageView("/org/jvfx/icons/printer.png"));
-        save = new Button(null, new ImageView("/org/jvfx/icons/save.png"));
-        backPage = new Button(null, new ImageView("/org/jvfx/icons/backimg.png"));
-        firstPage = new Button(null, new ImageView("/org/jvfx/icons/firstimg.png"));
-        nextPage = new Button(null, new ImageView("/org/jvfx/icons/nextimg.png"));
-        lastPage = new Button(null, new ImageView("/org/jvfx/icons/lastimg.png"));
-        zoomIn = new Button(null, new ImageView("/org/jvfx/icons/zoomin.png"));
-        zoomOut = new Button(null, new ImageView("/org/jvfx/icons/zoomout.png"));
+		print = new Button(null, new ImageView("/org/jvfx/icons/printer.png"));
+		print.setTooltip(new Tooltip("Print Report"));
+		save = new Button(null, new ImageView("/org/jvfx/icons/save.png"));			save = new Button(null, new ImageView("/org/jvfx/icons/save.png"));
+		save.setTooltip(new Tooltip("Save Report"));
+		backPage = new Button(null, new ImageView("/org/jvfx/icons/backimg.png"));			backPage = new Button(null, new ImageView("/org/jvfx/icons/backimg.png"));
+		backPage.setTooltip(new Tooltip("Back Page"));
+		firstPage = new Button(null, new ImageView("/org/jvfx/icons/firstimg.png"));			firstPage = new Button(null, new ImageView("/org/jvfx/icons/firstimg.png"));
+		firstPage.setTooltip(new Tooltip("Firt Page"));
+		nextPage = new Button(null, new ImageView("/org/jvfx/icons/nextimg.png"));			nextPage = new Button(null, new ImageView("/org/jvfx/icons/nextimg.png"));
+		nextPage.setTooltip(new Tooltip("Next Page"));
+		lastPage = new Button(null, new ImageView("/org/jvfx/icons/lastimg.png"));			lastPage = new Button(null, new ImageView("/org/jvfx/icons/lastimg.png"));
+		lastPage.setTooltip(new Tooltip("Last Page"));
+		zoomIn = new Button(null, new ImageView("/org/jvfx/icons/zoomin.png"));			zoomIn = new Button(null, new ImageView("/org/jvfx/icons/zoomin.png"));
+		zoomIn.setTooltip(new Tooltip("Zoom In Page"));
+		zoomOut = new Button(null, new ImageView("/org/jvfx/icons/zoomout.png"));			zoomOut = new Button(null, new ImageView("/org/jvfx/icons/zoomout.png"));
+		zoomOut.setTooltip(new Tooltip("Zoom Out Page"));
 
         // Pref sizes
         print.setPrefSize(30, 30);
