@@ -61,7 +61,7 @@ public class JasperViewerFX {
         dialog.initModality(Modality.WINDOW_MODAL);
         dialog.initOwner(owner);
         dialog.setScene(createScene());
-        dialog.getIcons().add(new Image("/org/jvfx/icons/jasperlogo.jpg"));
+        dialog.getIcons().add(new Image("/org/jvfx/icons/jaspersoftstudio.png"));
         
         currentPage = new SimpleIntegerProperty(this, "currentPage", 1);
     }
