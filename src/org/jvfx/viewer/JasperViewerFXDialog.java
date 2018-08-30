@@ -214,6 +214,7 @@ public class JasperViewerFXDialog extends Dialog<Void>{
         print.setOnAction((ActionEvent event) -> {
             try {
                 JasperPrintManager.printReport(jasperPrint, true);
+                this.close();
             } catch (JRException ex) {
                 ex.printStackTrace();
             }
