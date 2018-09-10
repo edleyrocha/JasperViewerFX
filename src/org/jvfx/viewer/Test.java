@@ -31,13 +31,14 @@ public class Test extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		Button complexCollectionReport = new Button("Complex report from JRBeanCollectionDataSource");
-		Button simpleCollectionReport = new Button("Simple report from JRBeanCollectionDataSource");
-		Button simpleJdbcReport = new Button("Simple report from JDBC connection");
 		
-		complexCollectionReport.setPrefWidth(300);
-		simpleCollectionReport.setPrefWidth(300);
-		simpleJdbcReport.setPrefWidth(300);
+		Button simpleJdbcReport = new Button("Simple report from JDBC connection - with Dialog");
+		Button simpleCollectionReport = new Button("Simple report from JRBeanCollectionDataSource - without Dialog");
+		Button complexCollectionReport = new Button("Complex report from JRBeanCollectionDataSource - without Dialog ");
+
+		simpleJdbcReport.setPrefWidth(450);
+		simpleCollectionReport.setPrefWidth(450);
+		complexCollectionReport.setPrefWidth(450);
 
 		simpleJdbcReport.setOnAction((ActionEvent) -> {
 			try {
@@ -111,9 +112,9 @@ public class Test extends Application {
 
 		VBox options = new VBox(5);
 		options.setAlignment(Pos.CENTER);
-		options.getChildren().addAll(simpleCollectionReport, simpleJdbcReport, complexCollectionReport);
+		options.getChildren().addAll(simpleJdbcReport, simpleCollectionReport, complexCollectionReport);
 
-		Scene scene = new Scene(options,400,400);
+		Scene scene = new Scene(options,500,500);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();

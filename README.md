@@ -31,7 +31,7 @@ In older versions of this project the JasperPrint's generation method has been a
 
 # How to use
 
-## Example with JDBC connection
+## Example With JDBC Connection Without Dialog
 
 ```java
 try {
@@ -39,6 +39,20 @@ try {
 	JasperReport jreport = (JasperReport) JRLoader.loadObject(getClass().getResource("/org/jvfx/example/simple_report.jasper"));
 	JasperPrint jprint = JasperFillManager.fillReport(jreport, null, con);
 	new JasperViewerFX(primaryStage).viewReport("Simple report", jprint);
+	con.close();
+} catch (JRException | SQLException e) {
+	e.printStackTrace();
+}
+```
+
+## Example With JDBC Connection With Dialog
+
+```java
+try {
+	Connection con = new ConnectionManager().getConnection();
+	JasperReport jreport = (JasperReport) JRLoader.loadObject(getClass().getResource("/org/jvfx/example/simple_report.jasper"));
+	JasperPrint jprint = JasperFillManager.fillReport(jreport, null, con);
+	new JasperViewerFXDialog().viewReport("Simple report", jprint);
 	con.close();
 } catch (JRException | SQLException e) {
 	e.printStackTrace();
